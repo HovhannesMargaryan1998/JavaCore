@@ -1,16 +1,18 @@
-package books;
+package books.storage;
 
+
+import books.model.Book;
 
 public class BooksStorage {
 
     Book[] array = new Book[10];
     private int size = 0;
 
-    void add(Book Book) {
-        if (size == array.length - 1) {
+    public void add(Book book) {
+        if (size==array.length){
             extend();
         }
-        array[size++] = Book;
+        array[size++]=book;
     }
 
     private void extend() {
@@ -21,7 +23,7 @@ public class BooksStorage {
         array = array2;
     }
 
-    void printAllBooks() {
+    public void printAllBooks() {
         for (int i = 0; i < size; i++) {
             System.out.print(i + ". " + array[i] + " ");
         }
@@ -88,6 +90,14 @@ public class BooksStorage {
         }
 
     }
+
+    public Book getAuthorByIndex(int Index) {
+        if (Index<0||Index>size){
+            return null;
+        }
+        return array[Index];
+    }
+
 }
 
 
