@@ -1,5 +1,6 @@
 package books.storage;
 
+import books.exception.AuthorNotFoundException;
 import books.model.Author;
 
 public class AutherStorage {
@@ -45,9 +46,9 @@ public class AutherStorage {
     }
 
 
-    public Author getAuthorByIndex(int index) {
+    public Author getAuthorByIndex(int index) throws  AuthorNotFoundException{
         if (index < 0 || index > size) {
-            return null;
+            throw new AuthorNotFoundException("author with"+index +"does not exists");
         }
         return array[index];
     }

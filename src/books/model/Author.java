@@ -6,6 +6,7 @@ public class Author {
     private String email;
     private String gender;
 
+
     public Author(String name, String surname, String email, String gender) {
         this.name = name;
         this.surname = surname;
