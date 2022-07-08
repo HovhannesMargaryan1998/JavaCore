@@ -1,5 +1,4 @@
 package books.storage;
-
 import books.exception.AuthorNotFoundException;
 import books.model.Author;
 
@@ -23,6 +22,9 @@ public class AutherStorage {
     }
 
     public void print() {
+        if (size==0){
+            System.out.println("There are no registered authors");
+        }
         for (int i = 0; i < size; i++) {
             System.out.print(i + ". " + array[i] + " ");
         }

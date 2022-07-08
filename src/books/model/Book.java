@@ -7,6 +7,8 @@ public class Book {
     private int count;
     private String genre;
 
+
+
     public Book(String title, Book author, double price, int count, String genre) {
         this.title = title;
         this.author = getAuthorName();

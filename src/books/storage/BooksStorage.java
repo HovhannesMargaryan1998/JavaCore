@@ -9,10 +9,10 @@ public class BooksStorage {
     private int size = 0;
 
     public void add(Book book) {
-        if (size==array.length){
+        if (size == array.length) {
             extend();
         }
-        array[size++]=book;
+        array[size++] = book;
     }
 
     private void extend() {
@@ -24,7 +24,11 @@ public class BooksStorage {
     }
 
     public void printAllBooks() {
+        if (size == 0) {
+            System.out.println("There are no registered books");
+        }
         for (int i = 0; i < size; i++) {
+
             System.out.print(i + ". " + array[i] + " ");
         }
         System.out.println();
@@ -92,7 +96,7 @@ public class BooksStorage {
     }
 
     public Book getAuthorByIndex(int Index) {
-        if (Index<0||Index>size){
+        if (Index < 0 || Index > size) {
             return null;
         }
         return array[Index];
