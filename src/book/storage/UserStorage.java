@@ -1,20 +1,22 @@
-package books.storage;
-import books.exception.AuthorNotFoundException;
-import books.model.Author;
+package book.storage;
 
-public class AutherStorage {
-    Author[] array = new Author[10];
+
+import book.model.Author;
+import book.model.User;
+
+public class UserStorage {
+    User[] array = new User[10];
     private int size = 0;
 
-    public void addAuthor(Author author) {
+    public void add(User user) {
         if (size == array.length - 1) {
             extend();
         }
-        array[size++] = author;
+        array[size++] = user;
     }
 
     private void extend() {
-       Author[] array2 = new Author[(array.length * 3) / 2 + 1];
+        User[] array2 = new User[(array.length * 3) / 2 + 1];
         for (int i = 0; i < array.length; i++) {
             array2[i] = array[i];
         }
@@ -22,13 +24,11 @@ public class AutherStorage {
     }
 
     public void print() {
-        if (size==0){
-            System.out.println("There are no registered authors");
-        }
         for (int i = 0; i < size; i++) {
             System.out.print(i + ". " + array[i] + " ");
+            System.out.println();
         }
-        System.out.println();
+
     }
 
 
@@ -43,16 +43,30 @@ public class AutherStorage {
         }
     }
 
+
     public int getSize() {
         return size;
     }
 
 
-    public Author getAuthorByIndex(int index) throws  AuthorNotFoundException{
+    public User getUserByIndex(int index) {
         if (index < 0 || index > size) {
-            throw new AuthorNotFoundException("author with"+index +"does not exists");
+            return null;
         }
         return array[index];
+    }
+
+    public void addAuthor(Author authorByIndex) {
+
+    }
+
+    public User getUserByEmail(String email) {
+        for (int i = 0; i < size; i++) {
+            if (array[i].getEmail().equals(email)) {
+                return array[i];
+            }
+        }
+        return null;
     }
 
 }

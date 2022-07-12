@@ -1,7 +1,7 @@
-package books.storage;
+package book.storage;
 
 
-import books.model.Book;
+import book.model.Book;
 
 public class BooksStorage {
 
@@ -26,11 +26,13 @@ public class BooksStorage {
     public void printAllBooks() {
         if (size == 0) {
             System.out.println("There are no registered books");
-        }
-        for (int i = 0; i < size; i++) {
+        }else {
+            for (int i = 0; i < size; i++) {
 
-            System.out.print(i + ". " + array[i] + " ");
+                System.out.print(i + ". " + array[i] + " ");
+            }
         }
+
         System.out.println();
     }
 

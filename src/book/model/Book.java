@@ -1,4 +1,4 @@
-package books.model;
+package book.model;
 
 public class Book {
     private String title;
@@ -66,7 +66,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "title='" + title + '\'' +
-                ", authorName='" + author.getName() + '\'' +
+                ", authorName='" + author + '\'' +
                 ", price=" + price +
                 ", count=" + count +
                 ", genre='" + genre + '\'' +
